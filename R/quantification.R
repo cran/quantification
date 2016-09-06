@@ -105,9 +105,9 @@ ra <- function(y.series, survey.up, survey.same, survey.down, forecast.horizon, 
 	y.e.mean.perc[i + forecast.horizon] <- y.series[i] * (1 + delta.y.e.mean.perc[i + forecast.horizon])
 	nob <- last.period - first.period + 1
 	mae.abs <- sum(abs(y.e.mean.abs - y.series), na.rm=TRUE) / nob
-	rmse.abs <- sqrt(sum((y.e.mean.abs - y.series)^2,na.rm=TRUE)) / nob
+	rmse.abs <- sqrt(sum((y.e.mean.abs - y.series)^2,na.rm=TRUE) / nob)
 	mae.perc <- sum(abs(y.e.mean.perc - y.series), na.rm=TRUE) / nob
-	rmse.perc <- sqrt(sum((y.e.mean.perc - y.series)^2,na.rm=TRUE)) / nob
+	rmse.perc <- sqrt(sum((y.e.mean.perc - y.series)^2,na.rm=TRUE) / nob)
 	ra.result <- list(delta.y.e.mean.abs = c(delta.y.e.mean.abs), 
 										delta.y.e.mean.perc = c(delta.y.e.mean.perc), 
 										y.e.mean.abs = c(y.e.mean.abs), 
@@ -243,9 +243,9 @@ cp <- function(y.series, survey.up, survey.same, survey.down, forecast.horizon, 
 	y.e.mean.perc[i + forecast.horizon] <- y.series[i] * (1 + delta.y.e.mean.perc[i + forecast.horizon])
 	nob <- last.period - first.period + 1
 	mae.abs <- sum(abs(y.e.mean.abs - y.series), na.rm=TRUE) / nob
-	rmse.abs <- sqrt(sum((y.e.mean.abs - y.series)^2,na.rm=TRUE)) / nob
+	rmse.abs <- sqrt(sum((y.e.mean.abs - y.series)^2,na.rm=TRUE) / nob)
 	mae.perc <- sum(abs(y.e.mean.perc - y.series), na.rm=TRUE) / nob
-	rmse.perc <- sqrt(sum((y.e.mean.perc - y.series)^2,na.rm=TRUE)) / nob
+	rmse.perc <- sqrt(sum((y.e.mean.perc - y.series)^2,na.rm=TRUE) / nob)
 	cp.results <- list(y.e.mean.abs = c(y.e.mean.abs), 
 										 y.e.mean.perc = c(y.e.mean.perc), 
 										 delta.y.e.mean.abs = c(delta.y.e.mean.abs), 
@@ -292,9 +292,9 @@ bal <- function(y.series, survey.up, survey.same, survey.down, forecast.horizon,
 	y.e.mean.perc[i + forecast.horizon] <- y.series[i] * (1 + delta.y.e.mean.perc[i + forecast.horizon])
 	nob <- last.period - first.period + 1
 	mae.abs <- sum(abs(y.e.mean.abs - y.series), na.rm=TRUE) / nob
-	rmse.abs <- sqrt(sum((y.e.mean.abs - y.series)^2,na.rm=TRUE)) / nob
+	rmse.abs <- sqrt(sum((y.e.mean.abs - y.series)^2,na.rm=TRUE) / nob)
 	mae.perc <- sum(abs(y.e.mean.perc - y.series), na.rm=TRUE) / nob
-	rmse.perc <- sqrt(sum((y.e.mean.perc - y.series)^2,na.rm=TRUE)) / nob
+	rmse.perc <- sqrt(sum((y.e.mean.perc - y.series)^2,na.rm=TRUE) / nob)
 	
 	bal.results <- list(y.e.mean.abs = c(y.e.mean.abs), 
 											y.e.mean.perc = c(y.e.mean.perc), 
