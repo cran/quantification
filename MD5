@@ -1,8 +1,9 @@
-5f4c2d6f3c006525b48d0e93a6e57202 *DESCRIPTION
-c9f9e28ebdbca2fe26485423ba08ac6e *NAMESPACE
-0228a5cc71df76a10d7f1729c24c183d *R/quantification.R
-655ccfceab64b2b60cf324d316038dc9 *inst/CITATION
-6eb5e07680dc973d01791f82484dbaf5 *man/bal.Rd
-1235635a524a7be601ab6b1b83ee4c70 *man/cp.Rd
-64e74186e04e26d36caf110125546fa6 *man/quantification-package.Rd
-aa78c67f2f0a77ebacc5d9549ee203ad *man/ra.Rd
+52fae9af9b7faa12ea6bd7bf815aad93 *DESCRIPTION
+1c7608935f64a9f7f5177bd8cfbf20a7 *NAMESPACE
+98286a4e1eef0499185f93dc38e78116 *R/quantification.R
+51ffed8816c838a895204298ea9e2ccd *inst/CITATION
+98bd9f7295b4562fc7e4fe316a6fd5df *man/bal.Rd
+4c0c0de488dfcca88ec7983286c1e832 *man/ce.Rd
+d7ae8b16619cdd54bfbe884c707f16ac *man/cp.Rd
+4b2c5c3ca79cec2a5e4dd65726f630cd *man/quantification-package.Rd
+e2e7dc5722066fbcdc595a4ce44d3cd0 *man/ra.Rd

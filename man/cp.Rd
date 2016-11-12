@@ -7,12 +7,14 @@ Carlson-Parkin method
 \code{cp} implements the method for the quantifcation of qualitative survey data proposed by Carlson/Parkin (1985). Additionally, it provides certain extensions of the Carlson-Parkin approach (e.g. other distributions than the normal distribution, indifference limens depending on the level of the forecasted variable).
 }
 \usage{
-cp(y.series, survey.up, survey.same, survey.down, forecast.horizon, first.period = 1, 
-last.period = (length(survey.up) - forecast.horizon), limen.type = "carlson.parkin",
-const.limen = 0, user.symm.limen = 0, user.upper.limen = 0, user.lower.limen = 0, 
-correct.zero = TRUE, correct.by = 0.01, growth.limit = NA, distrib.type = "normal", 
-distrib.mean = 0, distrib.sd = 1, distrib.log.location = 0, distrib.log.scale = 1, 
-distrib.t.df = (last.period - first.period), suppress.warnings = FALSE)
+cp(y.series, survey.up, survey.same, survey.down, forecast.horizon, 
+	first.period = 1, last.period = (length(survey.up) - forecast.horizon), 
+	limen.type = "carlson.parkin", const.limen = 0, user.symm.limen = 0, 
+	user.upper.limen = 0, user.lower.limen = 0, correct.zero = TRUE, 
+	correct.by = 0.01, growth.limit = NA, distrib.type = "normal", 
+	distrib.mean = 0, distrib.sd = 1, distrib.log.location = 0, 
+	distrib.log.scale = 1, distrib.t.df = (last.period - first.period), 
+	suppress.warnings = FALSE)
 }
 \arguments{
   \item{y.series}{
@@ -145,7 +147,7 @@ R package version 0.1.0. http://CRAN.R-project.org/package=quantification
 Joachim Zuckarelli, \email{joachim@zuckarelli.de}
 }
 \seealso{
-\code{\link{quantification-package}}, \code{\link{bal}}, \code{\link{ra}}
+\code{\link{quantification-package}}, \code{\link{bal}}, \code{\link{ra}}, \code{\link{ce}}
 }
 \examples{
 ## Data preparation: generate a sample dataset with inflation and survey data
@@ -156,9 +158,9 @@ answer.down<-c(2.9, 5.3, 4.1, 6.3, 10.2, 17.2, 20.4, 34.9, 40.5, 42.6, 45.5)
 
 ## Call cp for quantification
 quant.cp.limens<-cp(inflation, answer.up, answer.same, answer.down, first.period=5, 
-last.period=7, forecast.horizon=4)
+	last.period=7, forecast.horizon=4)
 
 ## With Weber-Fechner limens instead of Carson-Parkin limens
 quant.wf.limens<-cp(inflation, answer.up, answer.same, answer.same, first.period=5, 
-last.period=7, forecast.horizon=4, limen.type="weber.fechner")
+	last.period=7, forecast.horizon=4, limen.type="weber.fechner")
 }

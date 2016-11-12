@@ -8,9 +8,9 @@ The balance approach
 \code{bal} implements the balance approach for the quantification of qualitative survey data. A description of the method can be found in Batchelor (1986).
 }
 \usage{
-bal(y.series, survey.up, survey.same, survey.down, forecast.horizon, first.period = 1, 
-last.period = (length(survey.up) - forecast.horizon), growth.limit = NA, 
-suppress.warnings = FALSE)
+bal(y.series, survey.up, survey.same, survey.down, forecast.horizon, 
+	first.period = 1, last.period = (length(survey.up) - forecast.horizon),
+	growth.limit = NA, suppress.warnings = FALSE)
 }
 \arguments{
   \item{y.series}{
@@ -73,13 +73,13 @@ Batchelor, R.A. (1984), Quantitative vs. qualitative measures of inflation expec
 }
 \section{Please cite as:}{
 Zuckarelli, Joachim (2014). \emph{Quantification of qualitative survey data in R}.\cr
-R package version 0.1.0. http://CRAN.R-project.org/package=quantification
+R package version 1.0.0. http://CRAN.R-project.org/package=quantification
 }
 \author{
 Joachim Zuckarelli, \email{joachim@zuckarelli.de}
 }
 \seealso{
-\code{\link{quantification-package}}, \code{\link{cp}}, \code{\link{ra}}
+\code{\link{quantification-package}}, \code{\link{cp}}, \code{\link{ra}}, \code{\link{ce}}
 }
 
 \examples{
@@ -91,6 +91,6 @@ answer.down<-c(2.9, 5.3, 4.1, 6.3, 10.2, 17.2, 20.4, 34.9, 40.5, 42.6, 45.5)
 
 ## Call bal for quantification
 quant.bal<-bal(inflation, answer.up, answer.same, answer.down, first.period=5, 
-last.period=7, forecast.horizon=4)
+	last.period=7, forecast.horizon=4)
 
 }

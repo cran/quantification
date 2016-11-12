@@ -31,6 +31,33 @@ prep <- function(y.series, forecast.horizon, first.period, last.period, s.up, s.
 }
 
 
+ce<-function(y.series, survey.up, survey.same, survey.down, forecast.horizon, first.period = 11, last.period = (length(survey.up) - forecast.horizon), exp.horizon.type = "moving", mov.horizon.length = 10, fix.horizon.start = 1, fix.horizon.end = 10, distrib.param = "mean", suppress.warnings=FALSE) {
+	prep(y.series, forecast.horizon, first.period, last.period, survey.up, survey.same, survey.down)
+	if (distrib.param != "mean" && distrib.param != "median") stop(gettextf("\n%s is no valid value for distrib.param. distrib.param must either be \"mean\" or \"median\".\n", distrib.param))
+	if (!(fix.horizon.start > 0 && fix.horizon.end > 0)) stop(gettextf("\nBoth fix.horizon.start and fix.horizon.end must be specified and positive.\n"))
+	if (exp.horizon.type != "moving" && exp.horizon.type != "fix") stop(gettextf("\n\"%s\" is no valid value for exp.horizon.type. exp.horizon.type must either be \"moving\" or \"fix\".\n", exp.horizon.type))
+	
+	if (distrib.param == "mean") { p<-4 } else { p<-3 }
+	y.e <- c(rep(NA, length(survey.up)))
+	infl.experience <- y.series[fix.horizon.start:fix.horizon.end]
+	
+	for(i in first.period:last.period) {
+		if (exp.horizon.type == "moving") infl.experience <- y.series[(i - mov.horizon.length):(i - 1)]
+		if (y.series[i] >= max(infl.experience) | y.series[i] <= min(infl.experience) | is.na(survey.up[i]) == TRUE | is.na(survey.down[i]) == TRUE) { is.na(y.e[i + forecast.horizon]) <- TRUE }
+		else { y.e[i + forecast.horizon] <- summary(ecdf(infl.experience[infl.experience>y.series[i]]))[p] * survey.up[i] / (survey.up[i] + survey.same[i] + survey.down[i]) + y.series[i] * survey.same[i] / (survey.up[i] + survey.same[i] + survey.down[i]) + summary(ecdf(infl.experience[infl.experience < y.series[i]]))[p] * survey.down[i] / (survey.up[i] + survey.same[i] + survey.down[i]) }
+	}
+	nob <- last.period - first.period - 1
+	mae <- sum(abs(y.e - y.series), na.rm=TRUE)
+	rmse <- sqrt(sum((y.e - y.series)^2,na.rm=TRUE))
+	
+	ce.results <- list(y.e = c(y.e), 
+										 nob = c(nob),
+										 mae = c(mae),
+										 rmse = c(rmse))
+	return(ce.results)
+}
+
+
 ra <- function(y.series, survey.up, survey.same, survey.down, forecast.horizon, first.period = 1, last.period = (length(survey.up) - forecast.horizon), distrib.type = "normal", distrib.mean = 0, distrib.sd = 1, distrib.log.location = 0, distrib.log.scale = 1, distrib.t.df = (first.period - last.period), growth.limit = NA, symmetry.error = "white", suppress.warnings=FALSE) {
 	if (distrib.type != "normal" && distrib.type != "logistic" && distrib.type != "t") stop(gettextf("\n\"%s\" is not a valid distribution type. distrib.type must be either \"normal\" or \"logistic\"\" or \"t\".\n", distrib.type))
 	if (symmetry.error != "white" && symmetry.error != "small.sample") stop(gettextf("\n%s is no valid value for symmetry.error. symmetry.error must either be \"white\" or \"small.sample\".\n", symmetry.error))

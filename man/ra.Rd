@@ -8,10 +8,11 @@ Regression approach
 }
 \usage{
 ra(y.series, survey.up, survey.same, survey.down, forecast.horizon, 
-first.period = 1, last.period = (length(survey.up) - forecast.horizon), 
-distrib.type = "normal", distrib.mean = 0, distrib.sd = 1, distrib.log.location = 0, 
-distrib.log.scale = 1, distrib.t.df = (first.period - last.period), growth.limit = NA, 
-symmetry.error = "white", suppress.warnings = FALSE)
+	first.period = 1, last.period = (length(survey.up) - forecast.horizon), 
+	distrib.type = "normal", distrib.mean = 0, distrib.sd = 1, 
+	distrib.log.location = 0, distrib.log.scale = 1, 
+	distrib.t.df = (first.period - last.period), growth.limit = NA, 
+	symmetry.error = "white", suppress.warnings = FALSE)
 }
 \arguments{
   \item{y.series}{
@@ -106,13 +107,13 @@ Pesaran, M. (1984), Expectations formation and macroeconomic modelling, in: Malg
 }
 \section{Please cite as:}{
 Zuckarelli, Joachim (2014). \emph{Quantification of qualitative survey data in R}.\cr
-R package version 0.1.0. http://CRAN.R-project.org/package=quantification
+R package version 1.0.0. http://CRAN.R-project.org/package=quantification
 }
 \author{
 Joachim Zuckarelli, \email{joachim@zuckarelli.de}
 }
 \seealso{
-\code{\link{quantification-package}}, \code{\link{cp}}, \code{\link{bal}}
+\code{\link{quantification-package}}, \code{\link{cp}}, \code{\link{bal}}, \code{\link{ce}}
 }
 
 \examples{
@@ -124,5 +125,5 @@ answer.down<-c(2.9, 5.3, 4.1, 6.3, 10.2, 17.2, 20.4, 34.9, 40.5, 42.6, 45.5)
 
 ## Call ra for quantification
 quant.ra<-ra(inflation, answer.up, answer.same, answer.down, first.period=5, 
-last.period=7, forecast.horizon=4, symmetry.error="small.sample")
+	last.period=7, forecast.horizon=4, symmetry.error="small.sample")
 }

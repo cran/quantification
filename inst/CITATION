@@ -4,8 +4,8 @@ citEntry(
   entry="Manual",
   title = "Quantification of qualitative survey data in R",
   author = as.person("Joachim Zuckarelli"),
-  year = "2014",
-  note = "R package version 0.1.0",
-  textVersion = "Zuckarelli, Joachim (2014). Quantification of qualitative survey data in R. R package version 0.1.1. http://CRAN.R-project.org/package=quantification",
-  url = "http://CRAN.R-project.org/package=quantification"
+  year = "2016",
+  note = "R package version 0.2.0",
+  textVersion = "Zuckarelli, Joachim (2016). Quantification of qualitative survey data in R. R package version 0.2.0. https://cran.r-project.org/package=quantification",
+  url = "https://cran.r-project.org/package=quantification"
 )
